@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class GhostAnimations : MonoBehaviour
 {
-    public GameObject ghost;
+    public GameObject ghost1;
+    public GameObject ghost2;
+    public GameObject ghost3;
+    public GameObject ghost4;
+
     // Start is called before the first frame update
     void Start()
     {
-        ghost.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
-        GameObject ghost2 = Instantiate(ghost, Vector3.zero, Quaternion.identity);
-        ghost2.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
-        GameObject ghost3 = Instantiate(ghost, Vector3.up, Quaternion.identity);
-        ghost3.GetComponent<Renderer>().material.SetColor("_Color", Color.magenta);
-        GameObject ghost4 = Instantiate(ghost, Vector3.down, Quaternion.identity);
-        ghost4.GetComponent<Renderer>().material.SetColor("_Color", Color.blue);
+        ghost1.GetComponent<SpriteRenderer>().color = Color.yellow;
+        ghost2.GetComponent<SpriteRenderer>().color = Color.red;
+        ghost3.GetComponent<SpriteRenderer>().color = Color.magenta;
+        ghost4.GetComponent<SpriteRenderer>().color = Color.green;
     }
 
     // Update is called once per frame
