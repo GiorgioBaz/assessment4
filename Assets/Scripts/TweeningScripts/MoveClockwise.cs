@@ -7,10 +7,12 @@ public class MoveClockwise : MonoBehaviour
     private Tween activeTween;
 
     private List<Vector3> areastoVisit = new();
+    private float startedAnimation = 0.0f;
 
     public Animator animator;
 
     public AudioSource audioSrc;
+
 
     // Start is called before the first frame update
     void Start()
@@ -34,15 +36,7 @@ public class MoveClockwise : MonoBehaviour
             else if (distanceFromTarget <= 0.1f)
             {
                 activeTween.Target.position = activeTween.EndPos;
-                if (activeTween.EndPos == areastoVisit[0])
-                {
-                    animator.SetBool("PlayDead", true);
-                    Debug.Log(animator.GetBool("PlayDead"));
-                }
-                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PacStudent_DeadState"))
-                {
-                    visitAreas();
-                }
+                handleDeadState();
             }
         }
     }
@@ -86,5 +80,26 @@ public class MoveClockwise : MonoBehaviour
     {
         audioSrc.Stop();
         audioSrc.Play();
+    }
+
+    void handleDeadState()
+    {
+        if (activeTween.EndPos == areastoVisit[0])
+        {
+            startedAnimation += Time.deltaTime;
+            animator.SetBool("PlayDead", true);
+            Debug.Log(animator.GetBool("PlayDead"));
+
+            if (animator.GetBool("PlayDead") && (startedAnimation > 3.23f))
+            {
+                animator.SetBool("PlayDead", false);
+                startedAnimation = 0.0f;
+                visitAreas();
+            }
+        }
+        else
+        {
+            visitAreas();
+        }
     }
 }
