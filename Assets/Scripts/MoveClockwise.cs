@@ -8,18 +8,15 @@ public class MoveClockwise : MonoBehaviour
 
     private List<Vector3> areastoVisit = new();
 
+    public Animator animator;
+
+    public AudioSource audioSrc;
+
     // Start is called before the first frame update
     void Start()
     {
-        areastoVisit.Add(new Vector3(-5.5f, 4.5f, 0f));
-        areastoVisit.Add(new Vector3(-0.5f, 4.5f, 0f));
-        areastoVisit.Add(new Vector3(-0.5f, 0.5f, 0f));
-        areastoVisit.Add(new Vector3(-5.5f, 0.5f, 0f));
-
-        activeTween = new Tween(gameObject.transform, gameObject.transform.position, new Vector3(-0.5f, 4.5f, 0f), Time.time, 3.0f);
-
-        // activeTweens.Add(new Tween(gameObject.transform, gameObject.transform.position, new Vector3(-5.5f, 0.5f, 0f), Time.time + 4.0f, 2.0f));
-        // activeTweens.Add(new Tween(gameObject.transform, gameObject.transform.position, new Vector3(-5.5f, 4.5f, 0f), Time.time + 6.0f, 2.0f));
+        setAreasToVisit();
+        visitFirstArea();
     }
 
     // Update is called once per frame
@@ -37,16 +34,36 @@ public class MoveClockwise : MonoBehaviour
             else if (distanceFromTarget <= 0.1f)
             {
                 activeTween.Target.position = activeTween.EndPos;
-                AddTween();
+                if (activeTween.EndPos == areastoVisit[0])
+                {
+                    animator.SetBool("PlayDead", true);
+                    Debug.Log(animator.GetBool("PlayDead"));
+                }
+                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("PacStudent_DeadState"))
+                {
+                    visitAreas();
+                }
             }
         }
     }
 
-    void AddTween()
+    void AddTween(Vector3 areaToVisit)
+    {
+        activeTween = new Tween(gameObject.transform, gameObject.transform.position, areaToVisit, Time.time, 3.0f);
+    }
+
+    void setAreasToVisit()
+    {
+        areastoVisit.Add(new Vector3(-5.5f, 4.5f, 0f));
+        areastoVisit.Add(new Vector3(-0.5f, 4.5f, 0f));
+        areastoVisit.Add(new Vector3(-0.5f, 0.5f, 0f));
+        areastoVisit.Add(new Vector3(-5.5f, 0.5f, 0f));
+    }
+
+    void visitAreas()
     {
         Vector3 areaToVisit;
-        Debug.Log(areastoVisit.Count);
-
+        playWalkSound();
         if (areastoVisit.IndexOf(activeTween.EndPos) + 1 == areastoVisit.Count)
         {
             areaToVisit = areastoVisit[0];
@@ -55,6 +72,19 @@ public class MoveClockwise : MonoBehaviour
         {
             areaToVisit = areastoVisit[areastoVisit.IndexOf(activeTween.EndPos) + 1];
         }
-        activeTween = new Tween(gameObject.transform, gameObject.transform.position, areaToVisit, Time.time, 3.0f);
+
+        AddTween(areaToVisit);
+    }
+
+    void visitFirstArea()
+    {
+        playWalkSound();
+        AddTween(areastoVisit[1]);
+    }
+
+    void playWalkSound()
+    {
+        audioSrc.Stop();
+        audioSrc.Play();
     }
 }
