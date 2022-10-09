@@ -88,7 +88,7 @@ public class MoveClockwise : MonoBehaviour
         {
             startedAnimation += Time.deltaTime;
             animator.SetBool("PlayDead", true);
-            Debug.Log(animator.GetBool("PlayDead"));
+            //Debug.Log(animator.GetBool("PlayDead"));
 
             if (animator.GetBool("PlayDead") && (startedAnimation > 3.23f))
             {
