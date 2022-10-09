@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f9c46f0b0c8b5cf419479d5cb0150d3b
+guid: 664d155052ce9ee498d85498159763b6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -104,7 +104,49 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: AnimatedBorder_0
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 15
+        width: 17
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21f152bce9b4ec54d93ca9282c3a1f3a
+      internalID: -1463990937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnimatedBorder_1
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 20
+        width: 16
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 092762eea9335044b9bb1365d1db7eaa
+      internalID: -49349224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -115,7 +157,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      AnimatedBorder_5: -520434153
+      AnimatedBorder_4: 1244329080
+      AnimatedBorder_0: -1463990937
+      AnimatedBorder_3: -1199304434
+      AnimatedBorder_2: -597410509
+      AnimatedBorder_1: -49349224
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

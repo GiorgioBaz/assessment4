@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -767,12 +767,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Ghost1_21: 1851965955
+      Ghost1_12: 634662018
       Ghost1_23: 1418354518
-      Ghost1_15: -638574073
-      Ghost1_25: -1835924708
-      Ghost1_27: -1142373795
       Ghost1_30: 1502571575
-      Ghost1_17: 2024170835
       Ghost1_10: 2145860665
       Ghost1_19: 829191898
       Ghost1_7: 1784377963
@@ -792,13 +790,15 @@ TextureImporter:
       Ghost1_3: -1304932476
       Ghost1_14: -434308129
       Ghost1_4: -617403343
-      Ghost1_8: -1149617792
-      Ghost1_9: -353875971
       Ghost1_11: 49045954
-      Ghost1_21: 1851965955
+      Ghost1_8: -1149617792
+      Ghost1_15: -638574073
+      Ghost1_9: -353875971
+      Ghost1_17: 2024170835
+      Ghost1_25: -1835924708
       Ghost1_0: -1623741303
+      Ghost1_27: -1142373795
       Ghost1_2: 2007017843
-      Ghost1_12: 634662018
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 
