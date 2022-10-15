@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void QuitGame()
+    public void ReturnToStart()
     {
         SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
     }
